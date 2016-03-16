@@ -1,0 +1,12 @@
+CHRISTINA DAVIS
+HOST: vmps12
+
+
+------------
+---PART 1---
+------------
+
+
+Testing matrix multiply: 
+I noticed that dynamic worked much better for me than static. There was very little difference between dynamic and guided for me. There was also not TOO much variance in my times as I changed chunksize. Chunk sizes between 1 and ~300 were practically the same but above that it started slowing down significantly--which makes sense. 
+
