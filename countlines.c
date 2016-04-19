@@ -14,6 +14,7 @@ int main()
    }
 
    	int lines = 0; 
+	int ch;
 	while(!feof(fp_in))
 	{
 		ch = fgetc(fp_in);
@@ -23,7 +24,7 @@ int main()
 		}
 	}
 	
-	printf("number of lines in the file was %d", lines)
+	printf("number of lines in the file was %d\n", lines);
 
 	return 0;
 }
