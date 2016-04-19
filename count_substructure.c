@@ -48,20 +48,20 @@ int main()
 			}
 		}
     	
-    	printf("number of halos in the file was %d\n", Nhalos);
     	//allocate/initialize arrays for NEWdeepID 
     	//NEWdeepID gives the manodeep assigned haloID (int)
-    	//int * NEWdeepID_array = malloc(Nhalos * sizeof(int));
+    	int * NEWdeepID_array = malloc(Nhalos * sizeof(int));
     	
     	//allocate/initialize arrays for hostHalo 
     	//hostHalo says which FOF name the current halo belongs to 
     	//if 0 then it IS the FOF 
-    	//int * hostHalo = malloc(Nhalos * sizeof(int));
+    	int * hostHalo = malloc(Nhalos * sizeof(int));
 
     	//first line is header so actual number of elements is 1 less than
     	//the number of lines.  
-    	//Nhalos = Nhalos - 1 
-		
+    	Nhalos = Nhalos - 1 
+		printf("number of halos in the file was %d\n", Nhalos);
+
 		//unpack first column = NEWdeepID 
 		//unpack second column = hostHalo 
 		
