@@ -26,7 +26,7 @@ int main()
 		//open newhalos_xxx.txt
 		char filename[50];
 		sprintf(filename, "/fs0/illustris_snapshots/HPC_testfiles/newhalos_%d.txt", snap);
-		FILE *fp_in 
+		FILE *fp_in;
 		fp_in = fopen(filename, "r");
 		
 		//check to make sure file opened
