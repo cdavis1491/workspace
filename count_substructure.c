@@ -59,7 +59,7 @@ int main()
 
     	//first line is header so actual number of elements is 1 less than
     	//the number of lines.  
-    	Nhalos = Nhalos - 1 
+    	Nhalos = Nhalos - 1;
 		printf("number of halos in the file was %d\n", Nhalos);
 
 		//unpack first column = NEWdeepID 
