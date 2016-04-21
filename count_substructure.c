@@ -110,7 +110,7 @@ int main()
 		printf("Starting substructure on snapshot : %d \n", snap);
 
 		//create substructure array
-		long long int * substructure_array = malloc(Nhalos * sizeof(long long int));
+		long long int * substructure_array = malloc((Nhalos+10) * sizeof(long long int));
 
 		//call substructure function to fill array
 		count_subs(&Nhalos, NEWdeepID_array, hostHalo_array, substructure_array);
