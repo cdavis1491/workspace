@@ -156,15 +156,15 @@ void count_subs(long int * Nhalos, long long int * NEWdeepID_array, long long in
 			if (hostHalo_array[host] == current_halo){
 				numsubs++;
 			}
-			else{
-				//not a match; continue
-				continue; 
+			else {
+				continue;
 			}
 		}
 		//now we've gone through the whole list so we have counted numsubs for this halo
 		//fill substructure_array with numsubs 
 		substructure_array[halo] = numsubs; 
 		if (halo%1000 == 0){
+			printf("iteration : %d", halo);
 			printf("HaloID : %lli\n", NEWdeepID_array[halo]);
 			printf("Numsubs : %lli\n", numsubs);
 		}
