@@ -76,13 +76,13 @@ int main()
 		}
 
 		//print 'starting snap blah'
-		printf("Starting substructure on snapshot : %d \n", snap)
+		printf("Starting substructure on snapshot : %d \n", snap);
 
 		//create substructure array
 		int * substructure_array = malloc(Nhalos * sizeof(int));
 
 		//call substructure function to fill array
-		count_subs(&Nhalos, NEWdeepID_array, hostHalo_array, substructure_array)
+		count_subs(&Nhalos, NEWdeepID_array, hostHalo_array, substructure_array);
 
 		//print substructure array to file
 		int k; 
@@ -107,14 +107,14 @@ int main()
 //can probably make snapshot and Nhalos pointers and pass by ref? 
 //arrays are already passed by ref
 void count_subs(int * Nhalos, int * NEWdeepID_array, int * hostHalo_array, int * substructure_array){
-	printf("Starting count_subs. There are %d halos.\n", Nhalos)
+	printf("Starting count_subs. There are %d halos.\n", Nhalos);
 	int halo; 
 	//loop over haloID 
 	for (halo = 0; halo < *Nhalos; halo++){
 		//initialize the number of subs for this halo to zero
 		int numsubs = 0;
 		//find the ID of the halo we are investigating substructure for
-		int current_halo = NEWdeepID_array[halo]
+		int current_halo = NEWdeepID_array[halo];
 		//loop over hostHalo_array and look for matches. 
 		int host; 
 		for (host = 0; host < *Nhalos; host++){
