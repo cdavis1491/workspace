@@ -50,12 +50,12 @@ int main()
     	
     	//allocate/initialize arrays for NEWdeepID 
     	//NEWdeepID gives the manodeep assigned haloID (int)
-    	long int * NEWdeepID_array = malloc(Nhalos * sizeof(long int));
+    	long int * NEWdeepID_array = malloc((Nhalos+10)* sizeof(long int));
     	
     	//allocate/initialize arrays for hostHalo 
     	//hostHalo says which FOF name the current halo belongs to 
     	//if 0 then it IS the FOF 
-    	long int * hostHalo_array = malloc(Nhalos * sizeof(long int));
+    	long int * hostHalo_array = malloc((Nhalos+10)* sizeof(long int));
 
     	//first line is header so actual number of elements is 1 less than
     	//the number of lines.  
@@ -65,6 +65,8 @@ int main()
 		//read the header 
 		char buffer[100];
 		fgets(buffer, 100, fp_in);
+
+		printf("buffer is: %s", buffer)
 
 		//unpack columns from text file into arrays
 		int i;
