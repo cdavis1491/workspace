@@ -25,7 +25,7 @@ int main()
 	for (snap = 85; snap < maxsnap; snap++){
 		//open newhalos_xxx.txt
 		char filename[50];
-		sprintf(filename, "/fs0/illustris_snapshots/HPC_testfiles/newhalos_%d.txt", snap);
+		sprintf(filename, "/fs0/illustris_snapshots/HPC_testfiles/newhalos_%d_noheader.txt", snap);
 		FILE *fp_in;
 		fp_in = fopen(filename, "r");
 		
