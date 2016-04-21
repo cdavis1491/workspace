@@ -25,7 +25,7 @@ int main()
 	for (snap = 85; snap < maxsnap; snap++){
 		//open newhalos_xxx.txt
 		char filename[50];
-		sprintf(filename, "/fs0/illustris_snapshots/HPC_testfiles/newhalos_%d_test.txt", snap);
+		sprintf(filename, "/fs0/illustris_snapshots/HPC_testfiles/newhalos_%d_nohead.txt", snap);
 		FILE *fp_in;
 		fp_in = fopen(filename, "r");
 		
@@ -48,6 +48,7 @@ int main()
 			}
 		}
 		rewind(fp_in);
+		
     	//allocate/initialize arrays for NEWdeepID 
     	//NEWdeepID gives the manodeep assigned haloID (int)
     	long long int * NEWdeepID_array = malloc((Nhalos+10)* sizeof(long long int));
@@ -57,27 +58,12 @@ int main()
     	//if 0 then it IS the FOF 
     	long long int * hostHalo_array = malloc((Nhalos+10)* sizeof(long long int));
 
-    	/*
-    	//first line is header so actual number of elements is 1 less than
-    	//the number of lines.  
-    	Nhalos = Nhalos - 1;
-		printf("number of halos in the file was %ld\n", Nhalos);
-		
-		//read the header 
-		char buffer[100];
-		fgets(buffer, 100, fp_in);
-
-		printf("buffer is: %s\n", buffer);
-		*/ 
-
 		//unpack columns from text file into arrays
 		long int i;
 		float junkarray_float[10];
 		long long int junkarray_int[10];
 		
 		//these are garbage placeholders for reading the file
-
-		//check that i need to go to Nhalos + 1 
 
 		for (i=0; i<Nhalos; i++){
 			fscanf(fp_in, "%lli", &NEWdeepID_array[i]);
@@ -99,6 +85,7 @@ int main()
 
 		}
 
+		//debug prints ew. 
 		int haloi; 
 		for (haloi=0; haloi < 10; haloi++){
 			printf("NEWdeepID_array element %lli : %lli\n", haloi, NEWdeepID_array[haloi]);
@@ -118,7 +105,7 @@ int main()
 			printf("junk 13 element %d : %lli\n", haloi, junkarray_int[4]);
 		}
 
-		/*
+
 		//print 'starting snap blah'
 		printf("Starting substructure on snapshot : %d \n", snap);
 
@@ -136,7 +123,7 @@ int main()
 		for (k = 0; k < Nhalos; k++){
 			fprintf(fp_out, "%d , %d \n", hostHalo_array[k], substructure_array[k]);
 		}
-		*/
+
 		fclose(fp_in);
 	}
 	return 0;
