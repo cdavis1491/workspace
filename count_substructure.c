@@ -66,7 +66,7 @@ int main()
 		char buffer[100];
 		fgets(buffer, 100, fp_in);
 
-		printf("buffer is: %s", buffer)
+		printf("buffer is: %s\n", buffer);
 
 		//unpack columns from text file into arrays
 		int i;
