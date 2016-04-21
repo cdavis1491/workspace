@@ -75,6 +75,13 @@ int main()
 			fscanf(fp_in, "%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, ", &NEWdeepID_array[i], &hostHalo_array[i], &c2, &c3, &c4, &c5, &c6, &c7, &c8, &c9, &c10, &c11, &c12, &c13, &c14);
 		}
 
+		int haloi; 
+		for (haloi=0; haloi < 10; haloi++){
+			printf("NEWdeepID_array element %d : %d\n", haloi, NEWdeepID_array[haloi]);
+			printf("hostHalo_array element %d : %d\n", haloi, hostHalo_array[haloi]);
+		}
+
+		/*
 		//print 'starting snap blah'
 		printf("Starting substructure on snapshot : %d \n", snap);
 
@@ -92,6 +99,7 @@ int main()
 		for (k = 0; k < Nhalos; k++){
 			fprintf(fp_out, "%d , %d \n", hostHalo_array[k], substructure_array[k]);
 		}
+		*/
 	}
 	return 0;
 }
