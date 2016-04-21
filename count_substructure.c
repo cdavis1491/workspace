@@ -100,7 +100,7 @@ int main()
 		}
 
 		int haloi; 
-		for (haloi=0; haloi < 2; haloi++){
+		for (haloi=0; haloi < 10; haloi++){
 			printf("NEWdeepID_array element %lli : %lli\n", haloi, NEWdeepID_array[haloi]);
 			printf("hostHalo_array element %lli : %lli\n", haloi, hostHalo_array[haloi]);
 			printf("junk 1 element %d : %lli\n", haloi, junkarray_int[0]);
