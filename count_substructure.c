@@ -35,7 +35,7 @@ int main()
       		exit(0);
     	}
     	
-    	int Nhalos = 0;  
+    	long int Nhalos = 0;  
     	//the number of lines in the file will be equal to the number of halos. 
     	//this tells me how long my NEWdeepID_array and hostHalo arrays need to be
 		int ch;
@@ -50,17 +50,17 @@ int main()
     	
     	//allocate/initialize arrays for NEWdeepID 
     	//NEWdeepID gives the manodeep assigned haloID (int)
-    	int * NEWdeepID_array = malloc(Nhalos * sizeof(int));
+    	long int * NEWdeepID_array = malloc(Nhalos * sizeof(long int));
     	
     	//allocate/initialize arrays for hostHalo 
     	//hostHalo says which FOF name the current halo belongs to 
     	//if 0 then it IS the FOF 
-    	int * hostHalo_array = malloc(Nhalos * sizeof(int));
+    	long int * hostHalo_array = malloc(Nhalos * sizeof(long int));
 
     	//first line is header so actual number of elements is 1 less than
     	//the number of lines.  
     	Nhalos = Nhalos - 1;
-		printf("number of halos in the file was %d\n", Nhalos);
+		printf("number of halos in the file was %ld\n", Nhalos);
 		
 		//read the header 
 		char buffer[100];
@@ -68,17 +68,20 @@ int main()
 
 		//unpack columns from text file into arrays
 		int i;
-		int c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14; //these are garbage placeholders for reading the file
+		int *c4; 
+		long int *c2, *c12, *c13, *c14; //these are garbage placeholders for reading the file
+		float *c3, *c5, *c6, *c7, *c8, *c9, *c10, *c11;
 
 		//check that i need to go to Nhalos + 1 
 		for (i=0; i<Nhalos; i++){
-			fscanf(fp_in, "%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, ", &NEWdeepID_array[i], &hostHalo_array[i], &c2, &c3, &c4, &c5, &c6, &c7, &c8, &c9, &c10, &c11, &c12, &c13, &c14);
+			fscanf(fp_in, "%ld, %ld, %ld, %f, %d, %f, %f, %f, %f, %f, %f, %f, %ld, %ld, %ld, ",\
+			 &NEWdeepID_array[i], &hostHalo_array[i], &c2, &c3, &c4, &c5, &c6, &c7, &c8, &c9, &c10, &c11, &c12, &c13, &c14);
 		}
 
 		int haloi; 
 		for (haloi=0; haloi < 10; haloi++){
-			printf("NEWdeepID_array element %d : %d\n", haloi, NEWdeepID_array[haloi]);
-			printf("hostHalo_array element %d : %d\n", haloi, hostHalo_array[haloi]);
+			printf("NEWdeepID_array element %ld : %ld\n", haloi, NEWdeepID_array[haloi]);
+			printf("hostHalo_array element %ld : %ld\n", haloi, hostHalo_array[haloi]);
 		}
 
 		/*
