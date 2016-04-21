@@ -78,9 +78,30 @@ int main()
 		//these are garbage placeholders for reading the file
 
 		//check that i need to go to Nhalos + 1 
+		/*
 		for (i=0; i<Nhalos; i++){
 			fscanf(fp_in, "%lli, %lli, %lli, %f, %lli, %f, %f, %f, %f, %f, %f, %f, %lli, %lli, %lli",\
 			 &NEWdeepID_array[i], &hostHalo_array[i], &junkarray_int[0], &junkarray_float[0], &junkarray_int[1], &junkarray_float[1], &junkarray_float[2], &junkarray_float[3], &junkarray_float[4], &junkarray_float[5], &junkarray_float[6], &junkarray_float[7], &junkarray_int[2], &junkarray_int[3], &junkarray_int[4]);
+		}
+		*/
+		for (i=0; i<Nhalos; i++){
+			fscanf(fp_in, "%lli", &NEWdeepID_array[i]);
+			fscanf(fp_in, "%lli", &hostHalo_array[i]);
+			fscanf(fp_in, "%lli", &junkarray_int[0]);
+			fscanf(fp_in, "%f", &junkarray_float[0]);
+			fscanf(fp_in, "%lli", &junkarray_int[1]);
+			fscanf(fp_in, "%f", &junkarray_float[1]);
+			fscanf(fp_in, "%f", &junkarray_float[2]);
+			fscanf(fp_in, "%f", &junkarray_float[3]);
+			fscanf(fp_in, "%f", &junkarray_float[4]);
+			fscanf(fp_in, "%f", &junkarray_float[5]);
+			fscanf(fp_in, "%f", &junkarray_float[6]);
+			fscanf(fp_in, "%f", &junkarray_float[7]);
+			fscanf(fp_in, "%lli", &junkarray_int[2]);
+			fscanf(fp_in, "%lli", &junkarray_int[3]);
+			fscanf(fp_in, "%lli", &junkarray_int[4]);
+
+
 		}
 
 		int haloi; 
