@@ -57,6 +57,7 @@ int main()
     	//if 0 then it IS the FOF 
     	long int * hostHalo_array = malloc((Nhalos+10)* sizeof(long int));
 
+    	/*
     	//first line is header so actual number of elements is 1 less than
     	//the number of lines.  
     	Nhalos = Nhalos - 1;
@@ -67,6 +68,7 @@ int main()
 		fgets(buffer, 100, fp_in);
 
 		printf("buffer is: %s\n", buffer);
+		*/ 
 
 		//unpack columns from text file into arrays
 		int i;
