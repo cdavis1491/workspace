@@ -107,7 +107,7 @@ int main()
 //can probably make snapshot and Nhalos pointers and pass by ref? 
 //arrays are already passed by ref
 void count_subs(int * Nhalos, int * NEWdeepID_array, int * hostHalo_array, int * substructure_array){
-	printf("Starting count_subs. There are %d halos.\n", Nhalos);
+	printf("Starting count_subs. There are %d halos.\n", *Nhalos);
 	int halo; 
 	//loop over haloID 
 	for (halo = 0; halo < *Nhalos; halo++){
@@ -131,7 +131,7 @@ void count_subs(int * Nhalos, int * NEWdeepID_array, int * hostHalo_array, int *
 		//fill substructure_array with numsubs 
 		substructure_array[halo] = numsubs; 
 		if (halo%1000 == 0){
-			printf("Halo : %d\n", halo);
+			printf("HaloID : %d\n", hostHalo_array[halo]);
 			printf("Numsubs : %d\n", numsubs);
 		}
 	}
