@@ -70,14 +70,13 @@ int main()
 
 		//unpack columns from text file into arrays
 		int i;
-		int *c4; 
-		long int *c2, *c12, *c13, *c14; //these are garbage placeholders for reading the file
-		float *c3, *c5, *c6, *c7, *c8, *c9, *c10, *c11;
+		float junkarray[13];
+		//these are garbage placeholders for reading the file
 
 		//check that i need to go to Nhalos + 1 
 		for (i=0; i<Nhalos; i++){
-			fscanf(fp_in, "%ld, %ld, %ld, %f, %d, %f, %f, %f, %f, %f, %f, %f, %ld, %ld, %ld, ",\
-			 &NEWdeepID_array[i], &hostHalo_array[i], &c2, &c3, &c4, &c5, &c6, &c7, &c8, &c9, &c10, &c11, &c12, &c13, &c14);
+			fscanf(fp_in, "%ld, %ld, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, ",\
+			 &NEWdeepID_array[i], &hostHalo_array[i], &junkarray[0], &junkarray[1], &junkarray[2], &junkarray[3], &junkarray[4], &junkarray[5], &junkarray[6], &junkarray[7], &junkarray[8], &junkarray[9], &junkarray[10], &junkarray[11], &junkarray[12]);
 		}
 
 		int haloi; 
