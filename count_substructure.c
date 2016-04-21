@@ -9,7 +9,7 @@
 --------------------
 */
 
-void count_subs(int  * Nhalos, int * NEWdeepID_array, int * hostHalo_array, int * substructure_array);
+void count_subs(long int  * Nhalos, long long int * NEWdeepID_array, long long int * hostHalo_array, long long int * substructure_array);
 
 
 /* 
@@ -48,7 +48,7 @@ int main()
 			}
 		}
 		rewind(fp_in);
-		
+
     	//allocate/initialize arrays for NEWdeepID 
     	//NEWdeepID gives the manodeep assigned haloID (int)
     	long long int * NEWdeepID_array = malloc((Nhalos+10)* sizeof(long long int));
@@ -110,7 +110,7 @@ int main()
 		printf("Starting substructure on snapshot : %d \n", snap);
 
 		//create substructure array
-		int * substructure_array = malloc(Nhalos * sizeof(int));
+		long long int * substructure_array = malloc(Nhalos * sizeof(int));
 
 		//call substructure function to fill array
 		count_subs(&Nhalos, NEWdeepID_array, hostHalo_array, substructure_array);
@@ -139,7 +139,7 @@ int main()
 
 //can probably make snapshot and Nhalos pointers and pass by ref? 
 //arrays are already passed by ref
-void count_subs(int * Nhalos, int * NEWdeepID_array, int * hostHalo_array, int * substructure_array){
+void count_subs(long int * Nhalos, long long int * NEWdeepID_array, long long int * hostHalo_array, long long int * substructure_array){
 	printf("Starting count_subs. There are %d halos.\n", *Nhalos);
 	int halo; 
 	//loop over haloID 
@@ -164,7 +164,7 @@ void count_subs(int * Nhalos, int * NEWdeepID_array, int * hostHalo_array, int *
 		//fill substructure_array with numsubs 
 		substructure_array[halo] = numsubs; 
 		if (halo%1000 == 0){
-			printf("HaloID : %d\n", hostHalo_array[halo]);
+			printf("HaloID : %lli\n", hostHalo_array[halo]);
 			printf("Numsubs : %d\n", numsubs);
 		}
 	}
