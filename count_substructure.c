@@ -89,20 +89,20 @@ int main()
 		int haloi; 
 		for (haloi=0; haloi < 10; haloi++){
 			printf("NEWdeepID_array element %lli : %lli\n", haloi, NEWdeepID_array[haloi]);
-			printf("hostHalo_array element %lli : %lli\n", haloi, hostHalo_array[haloi]);
-			printf("junk 1 element %d : %lli\n", haloi, junkarray_int[0]);
-			printf("junk 2 element %d : %f\n", haloi, junkarray_float[0]);
-			printf("junk 3 element %d : %lli\n", haloi, junkarray_int[1]);
-			printf("junk 4 element %d : %f\n", haloi, junkarray_float[1]);
-			printf("junk 5 element %d : %f\n", haloi, junkarray_float[2]);
-			printf("junk 6 element %d : %f\n", haloi, junkarray_float[3]);
-			printf("junk 7 element %d : %f\n", haloi, junkarray_float[4]);
-			printf("junk 8 element %d : %f\n", haloi, junkarray_float[5]);
-			printf("junk 9 element %d : %f\n", haloi, junkarray_float[6]);
-			printf("junk 10 element %d : %f\n", haloi, junkarray_float[7]);
-			printf("junk 11 element %d : %lli\n", haloi, junkarray_int[2]);
-			printf("junk 12 element %d : %lli\n", haloi, junkarray_int[3]);
-			printf("junk 13 element %d : %lli\n", haloi, junkarray_int[4]);
+			// printf("hostHalo_array element %lli : %lli\n", haloi, hostHalo_array[haloi]);
+			// printf("junk 1 element %d : %lli\n", haloi, junkarray_int[0]);
+			// printf("junk 2 element %d : %f\n", haloi, junkarray_float[0]);
+			// printf("junk 3 element %d : %lli\n", haloi, junkarray_int[1]);
+			// printf("junk 4 element %d : %f\n", haloi, junkarray_float[1]);
+			// printf("junk 5 element %d : %f\n", haloi, junkarray_float[2]);
+			// printf("junk 6 element %d : %f\n", haloi, junkarray_float[3]);
+			// printf("junk 7 element %d : %f\n", haloi, junkarray_float[4]);
+			// printf("junk 8 element %d : %f\n", haloi, junkarray_float[5]);
+			// printf("junk 9 element %d : %f\n", haloi, junkarray_float[6]);
+			// printf("junk 10 element %d : %f\n", haloi, junkarray_float[7]);
+			// printf("junk 11 element %d : %lli\n", haloi, junkarray_int[2]);
+			// printf("junk 12 element %d : %lli\n", haloi, junkarray_int[3]);
+			// printf("junk 13 element %d : %lli\n", haloi, junkarray_int[4]);
 		}
 
 
@@ -110,7 +110,7 @@ int main()
 		printf("Starting substructure on snapshot : %d \n", snap);
 
 		//create substructure array
-		long long int * substructure_array = malloc(Nhalos * sizeof(int));
+		long long int * substructure_array = malloc(Nhalos * sizeof(long long int));
 
 		//call substructure function to fill array
 		count_subs(&Nhalos, NEWdeepID_array, hostHalo_array, substructure_array);
@@ -141,13 +141,13 @@ int main()
 //arrays are already passed by ref
 void count_subs(long int * Nhalos, long long int * NEWdeepID_array, long long int * hostHalo_array, long long int * substructure_array){
 	printf("Starting count_subs. There are %d halos.\n", *Nhalos);
-	int halo; 
+	long int halo; 
 	//loop over haloID 
 	for (halo = 0; halo < *Nhalos; halo++){
 		//initialize the number of subs for this halo to zero
-		int numsubs = 0;
+		long long int numsubs = 0;
 		//find the ID of the halo we are investigating substructure for
-		int current_halo = NEWdeepID_array[halo];
+		long int current_halo = NEWdeepID_array[halo];
 		//loop over hostHalo_array and look for matches. 
 		int host; 
 		for (host = 0; host < *Nhalos; host++){
@@ -165,7 +165,7 @@ void count_subs(long int * Nhalos, long long int * NEWdeepID_array, long long in
 		substructure_array[halo] = numsubs; 
 		if (halo%1000 == 0){
 			printf("HaloID : %lli\n", hostHalo_array[halo]);
-			printf("Numsubs : %d\n", numsubs);
+			printf("Numsubs : %lli\n", numsubs);
 		}
 	}
 	return;
