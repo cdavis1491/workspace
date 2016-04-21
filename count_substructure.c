@@ -25,7 +25,7 @@ int main()
 	for (snap = 85; snap < maxsnap; snap++){
 		//open newhalos_xxx.txt
 		char filename[50];
-		sprintf(filename, "/fs0/illustris_snapshots/HPC_testfiles/newhalos_%d_noheader.txt", snap);
+		sprintf(filename, "/fs0/illustris_snapshots/HPC_testfiles/newhalos_%d_test.txt", snap);
 		FILE *fp_in;
 		fp_in = fopen(filename, "r");
 		
@@ -47,15 +47,15 @@ int main()
 				Nhalos++;
 			}
 		}
-    	
+		rewind(fp_in);
     	//allocate/initialize arrays for NEWdeepID 
     	//NEWdeepID gives the manodeep assigned haloID (int)
-    	long int * NEWdeepID_array = malloc((Nhalos+10)* sizeof(long int));
+    	long long int * NEWdeepID_array = malloc((Nhalos+10)* sizeof(long long int));
     	
     	//allocate/initialize arrays for hostHalo 
     	//hostHalo says which FOF name the current halo belongs to 
     	//if 0 then it IS the FOF 
-    	long int * hostHalo_array = malloc((Nhalos+10)* sizeof(long int));
+    	long long int * hostHalo_array = malloc((Nhalos+10)* sizeof(long long int));
 
     	/*
     	//first line is header so actual number of elements is 1 less than
@@ -71,20 +71,35 @@ int main()
 		*/ 
 
 		//unpack columns from text file into arrays
-		int i;
-		float junkarray[13];
+		long int i;
+		float junkarray_float[10];
+		long long int junkarray_int[10];
+		
 		//these are garbage placeholders for reading the file
 
 		//check that i need to go to Nhalos + 1 
 		for (i=0; i<Nhalos; i++){
-			fscanf(fp_in, "%ld, %ld, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, ",\
-			 &NEWdeepID_array[i], &hostHalo_array[i], &junkarray[0], &junkarray[1], &junkarray[2], &junkarray[3], &junkarray[4], &junkarray[5], &junkarray[6], &junkarray[7], &junkarray[8], &junkarray[9], &junkarray[10], &junkarray[11], &junkarray[12]);
+			fscanf(fp_in, "%lli, %lli, %lli, %f, %lli, %f, %f, %f, %f, %f, %f, %f, %lli, %lli, %lli",\
+			 &NEWdeepID_array[i], &hostHalo_array[i], &junkarray_int[0], &junkarray_float[0], &junkarray_int[1], &junkarray_float[1], &junkarray_float[2], &junkarray_float[3], &junkarray_float[4], &junkarray_float[5], &junkarray_float[6], &junkarray_float[7], &junkarray_int[2], &junkarray_int[3], &junkarray_int[4]);
 		}
 
 		int haloi; 
-		for (haloi=0; haloi < 10; haloi++){
-			printf("NEWdeepID_array element %ld : %ld\n", haloi, NEWdeepID_array[haloi]);
-			printf("hostHalo_array element %ld : %ld\n", haloi, hostHalo_array[haloi]);
+		for (haloi=0; haloi < 1; haloi++){
+			printf("NEWdeepID_array element %lli : %lli\n", haloi, NEWdeepID_array[haloi]);
+			printf("hostHalo_array element %lli : %lli\n", haloi, hostHalo_array[haloi]);
+			printf("junk 1 element %d : %lli\n", haloi, junkarray_int[0]);
+			printf("junk 2 element %d : %f\n", haloi, junkarray_float[0]);
+			printf("junk 3 element %d : %lli\n", haloi, junkarray_int[1]);
+			printf("junk 4 element %d : %f\n", haloi, junkarray_float[1]);
+			printf("junk 5 element %d : %f\n", haloi, junkarray_float[2]);
+			printf("junk 6 element %d : %f\n", haloi, junkarray_float[3]);
+			printf("junk 7 element %d : %f\n", haloi, junkarray_float[4]);
+			printf("junk 8 element %d : %f\n", haloi, junkarray_float[5]);
+			printf("junk 9 element %d : %f\n", haloi, junkarray_float[6]);
+			printf("junk 10 element %d : %f\n", haloi, junkarray_float[7]);
+			printf("junk 11 element %d : %lli\n", haloi, junkarray_int[2]);
+			printf("junk 12 element %d : %lli\n", haloi, junkarray_int[3]);
+			printf("junk 13 element %d : %lli\n", haloi, junkarray_int[4]);
 		}
 
 		/*
@@ -106,6 +121,7 @@ int main()
 			fprintf(fp_out, "%d , %d \n", hostHalo_array[k], substructure_array[k]);
 		}
 		*/
+		fclose(fp_in);
 	}
 	return 0;
 }
