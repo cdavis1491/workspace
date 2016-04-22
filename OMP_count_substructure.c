@@ -123,7 +123,7 @@ int main()
 */
 
 void count_subs(long int * Nhalos, long long int * NEWdeepID_array, long long int * hostHalo_array, long long int * substructure_array){
-	printf("Starting count_subs. There are %d halos.\n", *Nhalos);
+	printf("Starting count_subs. There are %lli halos.\n", *Nhalos);
 	long int halo; 
 	int chunk = CHUNKSIZE; 
 	//loop over haloID
