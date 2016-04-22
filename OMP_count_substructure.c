@@ -96,7 +96,7 @@ int main()
 
 		//call substructure function to fill array
 		count_subs(&Nhalos, NEWdeepID_array, hostHalo_array, substructure_array);
-		printf("Finished counting. Starting printing\n");
+		//printf("Finished counting. Starting printing\n");
 
 		//print substructure array to file
 		int k; 
