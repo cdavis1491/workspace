@@ -19,12 +19,21 @@ void count_subs(int num_threads, long int  * Nhalos, long long int * NEWdeepID_a
 ---**MAIN**---
 --------------
 */
-int main()
+int main(int argc, char **argv)
 {
 	int snap; 
 	int maxsnap = 86; //change this as needed (max: 135)
 	int minsnap = 30; //change this as needed (min: 30)
 	int num_threads = 16; 
+	//CL arguements
+	if ( argc != 2 ) {
+    	printf("Usage: ./pass_command_line_options arg1\n");
+      	printf("where arg1 is an integer\n");
+      	exit(0);
+   	}
+   	
+   	if ( argc > 1 ) num_threads = atoi(argv[1]);
+
 	//loop over snapshots
 	for (snap = minsnap; snap < maxsnap; snap++){
 		//open newhalos_xxx.txt
