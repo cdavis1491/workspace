@@ -3,7 +3,7 @@
 #include <stdlib.h> // exit()
 #include <omp.h>
 #define CHUNKSIZE 100
-#define num_threads 16
+//#define num_threads 16
 
 /* 
 --------------------
@@ -24,6 +24,7 @@ int main()
 	int snap; 
 	int maxsnap = 86; //change this as needed (max: 135)
 	int minsnap = 30; //change this as needed (min: 30)
+	int num_threads = 16; 
 	//loop over snapshots
 	for (snap = minsnap; snap < maxsnap; snap++){
 		//open newhalos_xxx.txt
