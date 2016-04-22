@@ -84,13 +84,6 @@ int main()
 
 
 		}
-		/*
-		//debug prints ew. 
-		int haloi; 
-		for (haloi=0; haloi < 10; haloi++){
-			printf("NEWdeepID_array element %lli : %lli\n", haloi, NEWdeepID_array[haloi]);
-		}
-		*/
 
 		//print 'starting snap blah'
 		printf("Starting substructure on snapshot : %d \n", snap);
@@ -100,7 +93,7 @@ int main()
 
 		//call substructure function to fill array
 		count_subs(&Nhalos, NEWdeepID_array, hostHalo_array, substructure_array);
-		printf("Finished counting. starting printing\n");
+		printf("Finished counting. Starting printing\n");
 
 		//print substructure array to file
 		int k; 
@@ -110,7 +103,7 @@ int main()
 		fp_out = fopen(outfilename, "w");
 		printf("The first element of NEWdeepID_array : %lli\n", NEWdeepID_array[0]);
 		for (k = 0; k < Nhalos; k++){
-			fprintf(fp_out, "%lli , %lli \n", NEWdeepID_array[k], substructure_array[k]);
+			fprintf(fp_out, "%lli	%lli \n", NEWdeepID_array[k], substructure_array[k]);
 		}
 
 		fclose(fp_out);
@@ -127,14 +120,11 @@ int main()
 -------------------
 */
 
-//can probably make snapshot and Nhalos pointers and pass by ref? 
-//arrays are already passed by ref
 void count_subs(long int * Nhalos, long long int * NEWdeepID_array, long long int * hostHalo_array, long long int * substructure_array){
 	printf("Starting count_subs. There are %d halos.\n", *Nhalos);
 	long int halo; 
 	//loop over haloID 
 	for (halo = 0; halo < *Nhalos; halo++){
-		//printf("iteration : %d\n", halo);
 		//initialize the number of subs for this halo to zero
 		long long int numsubs = 0;
 		//find the ID of the halo we are investigating substructure for
@@ -150,15 +140,10 @@ void count_subs(long int * Nhalos, long long int * NEWdeepID_array, long long in
 				continue;
 			}
 		}
-		//printf("iteration : %d\n", halo);
 		//now we've gone through the whole list so we have counted numsubs for this halo
 		//fill substructure_array with numsubs 
 		substructure_array[halo] = numsubs; 
-		// if (halo%1000 == 0){
-		// 	printf("iteration : %d\n", halo);
-		// 	printf("HaloID : %lli\n", NEWdeepID_array[halo]);
-		// 	printf("Numsubs : %lli\n", numsubs);
-		// }
+
 	}
 	return;
 }
