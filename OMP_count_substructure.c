@@ -11,7 +11,7 @@
 --------------------
 */
 
-void count_subs(long int  * Nhalos, long long int * NEWdeepID_array, long long int * hostHalo_array, long long int * substructure_array);
+void count_subs(int num_threads, long int  * Nhalos, long long int * NEWdeepID_array, long long int * hostHalo_array, long long int * substructure_array);
 
 
 /* 
@@ -96,7 +96,7 @@ int main()
 		long long int * substructure_array = malloc((Nhalos+10) * sizeof(long long int));
 
 		//call substructure function to fill array
-		count_subs(&Nhalos, NEWdeepID_array, hostHalo_array, substructure_array);
+		count_subs(num_threads, &Nhalos, NEWdeepID_array, hostHalo_array, substructure_array);
 		//printf("Finished counting. Starting printing\n");
 
 		//print substructure array to file
@@ -123,7 +123,7 @@ int main()
 -------------------
 */
 
-void count_subs(long int * Nhalos, long long int * NEWdeepID_array, long long int * hostHalo_array, long long int * substructure_array){
+void count_subs(int num_threads, long int * Nhalos, long long int * NEWdeepID_array, long long int * hostHalo_array, long long int * substructure_array){
 	printf("Starting count_subs. There are %lli halos.\n", *Nhalos);
 	long int halo; 
 	int chunk = CHUNKSIZE; 
