@@ -109,7 +109,7 @@ int main()
 		FILE *fp_out;
 		fp_out = fopen(outfilename, "w");
 		for (k = 0; k < Nhalos; k++){
-			fprintf(fp_out, "%d , %d \n", hostHalo_array[k], substructure_array[k]);
+			fprintf(fp_out, "%d , %d \n", NEWdeepID_array[k], substructure_array[k]);
 		}
 
 		fclose(fp_out);
