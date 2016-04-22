@@ -84,27 +84,16 @@ int main()
 
 
 		}
-
+		/*
 		//debug prints ew. 
 		int haloi; 
 		for (haloi=0; haloi < 10; haloi++){
 			printf("NEWdeepID_array element %lli : %lli\n", haloi, NEWdeepID_array[haloi]);
-			// printf("hostHalo_array element %lli : %lli\n", haloi, hostHalo_array[haloi]);
-			// printf("junk 1 element %d : %lli\n", haloi, junkarray_int[0]);
-			// printf("junk 2 element %d : %f\n", haloi, junkarray_float[0]);
-			// printf("junk 3 element %d : %lli\n", haloi, junkarray_int[1]);
-			// printf("junk 4 element %d : %f\n", haloi, junkarray_float[1]);
-			// printf("junk 5 element %d : %f\n", haloi, junkarray_float[2]);
-			// printf("junk 6 element %d : %f\n", haloi, junkarray_float[3]);
-			// printf("junk 7 element %d : %f\n", haloi, junkarray_float[4]);
-			// printf("junk 8 element %d : %f\n", haloi, junkarray_float[5]);
-			// printf("junk 9 element %d : %f\n", haloi, junkarray_float[6]);
-			// printf("junk 10 element %d : %f\n", haloi, junkarray_float[7]);
-			// printf("junk 11 element %d : %lli\n", haloi, junkarray_int[2]);
-			// printf("junk 12 element %d : %lli\n", haloi, junkarray_int[3]);
-			// printf("junk 13 element %d : %lli\n", haloi, junkarray_int[4]);
 		}
+		*/
 
+		printf("the 37700th element of HaloID : %lli\n", NEWdeepID_array[37700]) 
+		printf("the 37701th element of HaloID : %lli\n", NEWdeepID_array[37701]) 
 
 		//print 'starting snap blah'
 		printf("Starting substructure on snapshot : %d \n", snap);
@@ -162,7 +151,7 @@ void count_subs(long int * Nhalos, long long int * NEWdeepID_array, long long in
 		}
 		//printf("iteration : %d\n", halo);
 		//now we've gone through the whole list so we have counted numsubs for this halo
-		//sfill substructure_array with numsubs 
+		//fill substructure_array with numsubs 
 		substructure_array[halo] = numsubs; 
 		// if (halo%1000 == 0){
 		// 	printf("iteration : %d\n", halo);
