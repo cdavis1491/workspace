@@ -92,8 +92,8 @@ int main()
 		}
 		*/
 
-		printf("the 37700th element of HaloID : %lli\n", NEWdeepID_array[37700]) 
-		printf("the 37701th element of HaloID : %lli\n", NEWdeepID_array[37701]) 
+		printf("the 37700th element of HaloID : %lli\n", NEWdeepID_array[37700]); 
+		printf("the 37701th element of HaloID : %lli\n", NEWdeepID_array[37701]);
 
 		//print 'starting snap blah'
 		printf("Starting substructure on snapshot : %d \n", snap);
