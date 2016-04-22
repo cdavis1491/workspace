@@ -93,7 +93,7 @@ int main()
 
 		//call substructure function to fill array
 		count_subs(&Nhalos, NEWdeepID_array, hostHalo_array, substructure_array);
-		printf("Finished counting. Starting printing\n");
+		//printf("Finished counting. Starting printing\n");
 
 		//print substructure array to file
 		int k; 
@@ -120,7 +120,7 @@ int main()
 */
 
 void count_subs(long int * Nhalos, long long int * NEWdeepID_array, long long int * hostHalo_array, long long int * substructure_array){
-	printf("Starting count_subs. There are %d halos.\n", *Nhalos);
+	printf("Starting count_subs. There are %lli halos.\n", *Nhalos);
 	long int halo; 
 	//loop over haloID 
 	for (halo = 0; halo < *Nhalos; halo++){
