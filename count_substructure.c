@@ -133,7 +133,7 @@ void count_subs(long int * Nhalos, long long int * NEWdeepID_array, long long in
 	long int halo; 
 	//loop over haloID 
 	for (halo = 0; halo < *Nhalos; halo++){
-		printf("iteration : %d", halo);
+		printf("iteration : %d\n", halo);
 		//initialize the number of subs for this halo to zero
 		long long int numsubs = 0;
 		//find the ID of the halo we are investigating substructure for
