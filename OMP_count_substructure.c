@@ -127,28 +127,37 @@ void count_subs(long int * Nhalos, long long int * NEWdeepID_array, long long in
 	long int halo; 
 	int chunk = CHUNKSIZE; 
 	//loop over haloID
-	#pragma omp parallel for shared(hostHalo_array, NEWdeepID_array, substructure_array) private(halo) schedule(dynamic, chunk)
-	for (halo = 0; halo < *Nhalos; halo++){
-		//initialize the number of subs for this halo to zero
-		long long int numsubs = 0;
-		//find the ID of the halo we are investigating substructure for
-		long int current_halo = NEWdeepID_array[halo];
-		//loop over hostHalo_array and look for matches. 
-		int host; 
-		for (host = 0; host < *Nhalos; host++){
-			//check if the halo in hostHalo list matches the haloID 
-			if (hostHalo_array[host] == current_halo){
-				numsubs++;
+	int nthreads, tid; 
+	#pragma omp parallel shared(hostHalo_array, NEWdeepID_array, substructure_array) private(halo, tid){
+		tid = omp_get_thread_num()
+	    if (tid == 0) 
+        {
+        	nthreads = omp_get_num_threads();
+        	printf("Number of threads = %d\n", nthreads);
+      	}
+		#pragma omp for schedule(dynamic, chunk)
+		for (halo = 0; halo < *Nhalos; halo++){
+			//initialize the number of subs for this halo to zero
+			long long int numsubs = 0;
+			//find the ID of the halo we are investigating substructure for
+			long int current_halo = NEWdeepID_array[halo];
+			//loop over hostHalo_array and look for matches. 
+			int host; 
+			for (host = 0; host < *Nhalos; host++){
+				//check if the halo in hostHalo list matches the haloID 
+				if (hostHalo_array[host] == current_halo){
+					numsubs++;
+				}
+				else {
+					continue;
+				}
 			}
-			else {
-				continue;
-			}
-		}
-		//now we've gone through the whole list so we have counted numsubs for this halo
-		//fill substructure_array with numsubs 
-		substructure_array[halo] = numsubs; 
+			//now we've gone through the whole list so we have counted numsubs for this halo
+			//fill substructure_array with numsubs 
+			substructure_array[halo] = numsubs; 
 
-	}
+		}
+	}	
 	return;
 }
 
