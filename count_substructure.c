@@ -160,14 +160,15 @@ void count_subs(long int * Nhalos, long long int * NEWdeepID_array, long long in
 				continue;
 			}
 		}
+		printf("iteration : %d\n", halo);
 		//now we've gone through the whole list so we have counted numsubs for this halo
 		//fill substructure_array with numsubs 
 		substructure_array[halo] = numsubs; 
-		if (halo%1000 == 0){
-			printf("iteration : %d\n", halo);
-			printf("HaloID : %lli\n", NEWdeepID_array[halo]);
-			printf("Numsubs : %lli\n", numsubs);
-		}
+		// if (halo%1000 == 0){
+		// 	printf("iteration : %d\n", halo);
+		// 	printf("HaloID : %lli\n", NEWdeepID_array[halo]);
+		// 	printf("Numsubs : %lli\n", numsubs);
+		// }
 	}
 	return;
 }
