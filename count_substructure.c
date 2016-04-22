@@ -20,9 +20,10 @@ void count_subs(long int  * Nhalos, long long int * NEWdeepID_array, long long i
 int main()
 {
 	int snap; 
-	int maxsnap = 86; //change this as needed only doing one snap right now
+	int maxsnap = 86; //change this as needed (max: 135)
+	int minsnap = 30; //change this as needed (min: 30)
 	//loop over snapshots
-	for (snap = 85; snap < maxsnap; snap++){
+	for (snap = minsnap; snap < maxsnap; snap++){
 		//open newhalos_xxx.txt
 		char filename[50];
 		sprintf(filename, "/fs0/illustris_snapshots/HPC_testfiles/newhalos_%d_nohead.txt", snap);
