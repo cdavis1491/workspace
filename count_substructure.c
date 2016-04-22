@@ -100,16 +100,19 @@ int main()
 
 		//call substructure function to fill array
 		count_subs(&Nhalos, NEWdeepID_array, hostHalo_array, substructure_array);
+		printf("Finished counting. starting printing\n");
 
 		//print substructure array to file
 		int k; 
 		char outfilename[50];
 		sprintf(outfilename, "/fs0/illustris_snapshots/HPC_testfiles/substructure_output_%d.txt", snap);
 		FILE *fp_out;
+		fp_out = fopen(outfilename, "w");
 		for (k = 0; k < Nhalos; k++){
 			fprintf(fp_out, "%d , %d \n", hostHalo_array[k], substructure_array[k]);
 		}
 
+		fclose(fp_out);
 		fclose(fp_in);
 	}
 	return 0;
