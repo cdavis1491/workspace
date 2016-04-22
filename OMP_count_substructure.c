@@ -129,7 +129,7 @@ void count_subs(long int * Nhalos, long long int * NEWdeepID_array, long long in
 	//loop over haloID
 	int nthreads, tid; 
 	#pragma omp parallel shared(hostHalo_array, NEWdeepID_array, substructure_array) private(halo, tid){
-		tid = omp_get_thread_num()
+		tid = omp_get_thread_num();
 	    if (tid == 0) 
         {
         	nthreads = omp_get_num_threads();
