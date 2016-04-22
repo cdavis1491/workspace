@@ -20,7 +20,7 @@ void count_subs(long int  * Nhalos, long long int * NEWdeepID_array, long long i
 int main()
 {
 	int snap; 
-	int maxsnap = 86; //change this as needed (max: 135)
+	int maxsnap = 135; //change this as needed (max: 135)
 	int minsnap = 30; //change this as needed (min: 30)
 	//loop over snapshots
 	for (snap = minsnap; snap < maxsnap; snap++){
@@ -49,7 +49,6 @@ int main()
 			}
 		}
 		rewind(fp_in);
-
     	//allocate/initialize arrays for NEWdeepID 
     	//NEWdeepID gives the manodeep assigned haloID (int)
     	long long int * NEWdeepID_array = malloc((Nhalos+10)* sizeof(long long int));
