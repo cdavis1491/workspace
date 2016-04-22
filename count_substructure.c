@@ -101,7 +101,6 @@ int main()
 		sprintf(outfilename, "/fs0/illustris_snapshots/HPC_testfiles/substructure_output_%d.txt", snap);
 		FILE *fp_out;
 		fp_out = fopen(outfilename, "w");
-		printf("The first element of NEWdeepID_array : %lli\n", NEWdeepID_array[0]);
 		for (k = 0; k < Nhalos; k++){
 			fprintf(fp_out, "%lli	%lli \n", NEWdeepID_array[k], substructure_array[k]);
 		}
