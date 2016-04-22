@@ -9,7 +9,7 @@
 --------------------
 */
 
-void count_subs(long int  * Nhalos, long long int * NEWdeepID_array, long long int * hostHalo_array, long long int * substructure_array);
+void count_subs(long long int  * Nhalos, long long int * NEWdeepID_array, long long int * hostHalo_array, long long int * substructure_array);
 
 
 /* 
@@ -36,7 +36,7 @@ int main()
       		exit(0);
     	}
     	
-    	long int Nhalos = 0;  
+    	long long int Nhalos = 0;  
     	//the number of lines in the file will be equal to the number of halos. 
     	//this tells me how long my NEWdeepID_array and hostHalo arrays need to be
 		int ch;
@@ -119,8 +119,8 @@ int main()
 -------------------
 */
 
-void count_subs(long int * Nhalos, long long int * NEWdeepID_array, long long int * hostHalo_array, long long int * substructure_array){
-	printf("Starting count_subs. There are %li halos.\n", *Nhalos);
+void count_subs(long long int * Nhalos, long long int * NEWdeepID_array, long long int * hostHalo_array, long long int * substructure_array){
+	printf("Starting count_subs. There are %lli halos.\n", *Nhalos);
 	long int halo; 
 	//loop over haloID 
 	for (halo = 0; halo < *Nhalos; halo++){
